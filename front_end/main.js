@@ -1,6 +1,10 @@
 'use strict';
 
-const messageURL = 'http://localhost:3000/messages'
+const messageURL = 'http://localhost:3000/messages';
+const socketURL = 'ws://localhost:3000/cable';
+
+let socket = new WebSocket(socketURL);
+socket.onmessage = (event) => console.log(event);
 
 const getMessages = () => {
   $.ajax({
@@ -11,6 +15,9 @@ const getMessages = () => {
 };
 
 const postMessage = (message) => {
+
+  // let data = JSON.stringify({ "message" : {"content" : message }});
+  // socket.send(data);
   $.ajax({
     type: 'post',
     url: messageURL,
@@ -31,8 +38,7 @@ const showMessages = (messages) => {
 };
 
 $('#send-button').click(() => {
-  console.log('firing');
   postMessage($('#message').val());
 });
 
-getMessages();
+getMessages()
