@@ -20,6 +20,10 @@ class MessagesController < ApplicationController
 
     if @message.save
       render json: @message, status: :created, location: @message
+      if message.save
+        ActionCable.server.broadcast 'message_channel',
+                                     content:  message.content
+      end
     else
       render json: @message.errors, status: :unprocessable_entity
     end
