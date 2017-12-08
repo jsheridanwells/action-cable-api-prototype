@@ -1,24 +1,14 @@
-# README
+# Action Cable API Prototype
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Trying to create a simple websocket stream using a Rails api and a vanilla javascript frontend. 
 
-Things you may want to cover:
+To run the API server: 
+```
+$ rails server
+```
+It should run on `http://localhost:3000`
 
-* Ruby version
+To run the front end server, change to the front_end directory (`$ cd front_end`). 
 
-* System dependencies
+Then run http-server on port 8080: `$ http-server -p 8080`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
